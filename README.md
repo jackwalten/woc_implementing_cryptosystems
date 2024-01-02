@@ -1,6 +1,6 @@
 # Implementing Cryptosystems
 ## Caesar cipher
-The caesar cipher is a type of substitution cipher where the letters of the ciphertext alphabet are the plaintext alphabet shifted by an amount, called the key. For example, with a shift of `3`, `D` becomes `A`, `E` becomes `B`, etc.
+The caesar cipher is a type of substitution cipher where the letters of the ciphertext alphabet are the plaintext alphabet shifted by an amount, called the key. For example, with a shift of $3$, `D` becomes `A`, `E` becomes `B`, etc.
 
 When encoding a message, every letter of the plain text alphabet is shifted by the key to get the corresponding letter in the ciphertext alphabet. If a letter is not in the plaintext alphabet in a message we are trying to encode, we pass it as is. (for example: digits and spaces)
 
