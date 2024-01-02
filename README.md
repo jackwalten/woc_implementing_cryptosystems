@@ -59,7 +59,7 @@ The RSA algorithm involves four steps: key generation, key distribution, encrypt
 5. $d = e^{-1} \mod{\phi(n)}$ is computed using the Extended Euclidean algorithm.
    - $d$ is kept secret as part of the private key.
 
-The public key consists of the pair of integers $(e,n)$ and the private key consists of the integers $(d,n)$. $p$,$q$ and $\phi(n)$ must all ke kept secret, and can even be discarded after $d$ has been calculated. 
+The public key consists of the pair of integers $(e,n)$ and the private key consists of the integers $(d,n)$. $p$, $q$ and $\phi(n)$ must all ke kept secret, and can even be discarded after $d$ has been calculated. 
 
 ### Key Distribution
 Suppose that Bob wants to send information to Alice. If they decide to use RSA, Bob must know Alice's public key to encrypt the message, and Alice must use her private key to decrypt the message.
