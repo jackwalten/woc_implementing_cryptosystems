@@ -53,7 +53,7 @@ The RSA algorithm involves four steps: key generation, key distribution, encrypt
 3. Compute $\phi(n)=(p-1)\cdot(q-1)$
    - $\phi(n)$ is called the Euler's Totient Function and is defined as the number of positive integers which are less than co-prime to $n$.
    - $\phi(n)$ must be kept secret.
-4. An integer $e$ is chosen such that $gcd(e,\phi(n)) = 1$ and $2 < e < \phi(n)$.
+4. An integer $e$ is chosen such that $\gcd(e,\phi(n)) = 1$ and $2 < e < \phi(n)$.
    - Most commonly a value of $e = 65537$ is chosen.
    - It is released as part of the public key.
 5. $d = e^{-1} \mod{\phi(n)}$ is computed using the Extended Euclidean algorithm.
