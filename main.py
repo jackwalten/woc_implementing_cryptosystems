@@ -57,6 +57,11 @@ def main():
                              'Enter your choice: ')))
             if choice == 0:
                 plaintxt = input("Please enter the text you want to encrypt: ")
+                while True:
+                    key = input("Please enter the key: ")
+                    if (not char.isalpha() for char in key):
+                        print("Please enter a valid key with only letters")
+                        break
                 key = input("Please enter the key: ")
                 print("Encrypted Text:", vigenere.encrypt(plaintxt,key))
             elif choice == 1:

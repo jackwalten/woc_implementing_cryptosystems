@@ -5,7 +5,7 @@ from cryptography.hazmat.backends import default_backend
 from random import SystemRandom
 random = SystemRandom()
 
-def generate_dh_paramters(bits=512):
+def generate_dh_paramters(bits=1024):
     parameters = dh.generate_parameters(generator=2,key_size=bits,backend=default_backend())
     return parameters.parameter_numbers().g,parameters.parameter_numbers().p
 
