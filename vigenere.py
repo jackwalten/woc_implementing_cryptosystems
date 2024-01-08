@@ -1,4 +1,10 @@
 # Vigenere Cipher
+def index(char):
+    if char.islower():
+        return ord(char) - ord('a')
+    else:
+        return ord(char) - ord('A')
+
 def adjustkey(key,plainLen):
     keyLen = len(key)
     return ''.join(key[x % keyLen] for x in range(plainLen))
@@ -9,9 +15,9 @@ def encrypt(plaintxt,key):
     ciphertxt = ''
     for i in range(plainLen):
         if plaintxt[i].islower():
-            ciphertxt += chr((ord(plaintxt[i]) + ord(key[i].lower()) - 2*ord('a')) % 26 + ord('a'))
+            ciphertxt += chr((index(plaintxt[i]) + index(key[i].lower())) % 26 + ord('a'))
         elif plaintxt[i].isupper():
-            ciphertxt += chr((ord(plaintxt[i]) + ord(key[i].upper()) - 2*ord('A')) % 26 + ord('A'))
+            ciphertxt += chr((index(plaintxt[i]) + index(key[i].lower())) % 26 + ord('A'))
         else:
             ciphertxt += plaintxt[i]
     return ciphertxt
