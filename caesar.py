@@ -1,29 +1,14 @@
 # Caesar cipher
-import string
-plain_charset = string.ascii_uppercase
-
-def encode(msg,key):
-    ciphertext = ''
-    for i in msg:
-        if i in plain_charset:
-            ciphertext += plain_charset[(plain_charset.find(i) + key) % len(plain_charset)]
+def encrypt(plaintxt,key=13):
+    ciphertxt = ''
+    for char in plaintxt:
+        if char.islower():
+            ciphertxt += chr(ord('a') + (ord(char) - ord('a') + key) % 26)
+        elif char.isupper():
+            ciphertxt += chr(ord('A') + (ord(char) - ord('A') + key) % 26)
         else:
-            ciphertext += i
-    return ciphertext
+            ciphertxt += char
+    return ciphertxt 
 
-def decode(msg,key):
-    plaintext = ''
-    for i in msg:
-        if i in plain_charset:
-            plaintext += plain_charset[(plain_charset.find(i) - key) % len(plain_charset)]
-        else:
-            plaintext += i
-    return plaintext
-
-msg = input("Please enter your message in uppercase letters: ")
-key = int(input("Please enter your shift value: ")) 
-cipher = encode(msg,key)
-
-print("Message:    ", msg)
-print("Shift (key):", key)
-print("Ciphertext: ", cipher)
+def decrypt(ciphertxt,key=13):
+    return encrypt(ciphertxt,26-key)
