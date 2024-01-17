@@ -3,6 +3,7 @@ import atbash
 import vigenere
 import rsa
 import df_key
+from Crypto.Util.number import long_to_bytes, bytes_to_long
 
 def main():
     while True:
@@ -71,7 +72,7 @@ def main():
             else:
                 continue
         elif cipher == 3:
-            g, p = df_key.generate_dh_paramters() # Public parameters
+            g, p = df_key.generate_dh_parameters() # Public parameters
             Alice = df_key.df_key(g,p)
             Bob = df_key.df_key(g,p)
 
@@ -109,7 +110,7 @@ def main():
                 e = 65537
                 d = pow(e,-1,phi)
                 plaintxt = input("Enter the text want to encrypt: ")
-                m = int.from_bytes(plaintxt.encode())
+                m = bytes_to_long(plaintxt.encode())
                 c = pow(m,e,n)
                 print("Private Key (d,n): ",(d,n))
                 print("Public Key (e,n): ",(e,n))
@@ -118,7 +119,7 @@ def main():
                 d,n = eval(input("Please enter the Private Key as a comma separated value of (d,n): "))
                 c = int(input("Please enter the encrypted number: "))
                 m = pow(c,d,n)
-                plaintxt = int.to_bytes(m,2048).decode()
+                plaintxt = long_to_bytes(m).decode()
                 print("Decrypted Message: ",plaintxt)
         elif cipher == 5:
             return False

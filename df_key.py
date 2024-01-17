@@ -1,13 +1,11 @@
 # DF Key Exchange
-# Since python is a horrendously slow language, I give up and use the rust based cryptography library. Thank you python!!!
-from cryptography.hazmat.primitives.asymmetric import dh
-from cryptography.hazmat.backends import default_backend
+from Crypto.PublicKey.DSA import generate
 from random import SystemRandom
 random = SystemRandom()
 
-def generate_dh_paramters(bits=1024):
-    parameters = dh.generate_parameters(generator=2,key_size=bits,backend=default_backend())
-    return parameters.parameter_numbers().g,parameters.parameter_numbers().p
+def generate_dh_parameters(bits=1024):
+    DF = generate(bits)
+    return DF.g, DF.p
 
 class df_key:
     def __init__(self,g,p):
